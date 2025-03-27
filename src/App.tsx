@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { ShoppingBag, Heart, Menu, X } from 'lucide-react'
 import { cn } from './lib/utils'
+import { ShopPage } from './pages/Shop'
+import { ProductDetailPage } from './pages/ProductDetail'
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,7 +39,6 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -204,6 +205,8 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/product/:id" element={<ProductDetailPage />} />
         </Routes>
       </div>
     </Router>
